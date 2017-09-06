@@ -23,8 +23,10 @@ and what you should write is the sayHi function that makes the code above work,
 // 1. Write a function called first that returns the first item of the array using a callback function
 
   // Code Here
+var first = (arr,cb) => {
+  cb(arr[0]);
+}
 
-  
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
   console.log('The first name in names is ' + firstName);
@@ -36,8 +38,9 @@ first(names, function(firstName){
 // 2. Write a function called last which returns the last item of the array using a callback function.
 
   //Code Here
-
-
+var last = (arr, cb) => {
+  cb(arr[arr.length -1]);
+}
 
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -50,7 +53,9 @@ last(names, function(lastName){
 
   //Code Here
 
-
+  var multiply = (num1, num2, cb) => {
+    cb(num1 * num2);
+  }
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -64,7 +69,12 @@ multiply(4, 3, function(answer){
 
   //Code Here 
 
-
+var contains = (str, names, cb) => {
+  if(str.includes(names) === true) {
+    cb(true);
+  } else {
+    cb(false);
+  }}
 
 
 contains(names, 'Colt', function(result){
@@ -81,7 +91,10 @@ contains(names, 'Colt', function(result){
 // Invoke the callback with the modified array as an argument.
 
   //Code Here
-
+var uniq = (arr,cb) => {
+var newSet = Array.from(new Set(arr));
+cb(newSet);
+}
 
 
 uniq(names, function(uniqArr){
